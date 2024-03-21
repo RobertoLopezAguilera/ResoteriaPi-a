@@ -1,4 +1,3 @@
-/* Estilos para el catálogo y la página en general */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -34,7 +33,7 @@ h1, h2, h3 {
     border: 0;
     position: relative;
 }
-/* Estilos para el menú desplegable */
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -87,7 +86,6 @@ nav ul li a {
     display: block;
 }
 
-/* Otros estilos */
 body {
     margin: 0;
     padding: 0;
@@ -96,4 +94,8 @@ body {
 
 header h1 {
     margin: 0;
+}
+
+header {
+background-color: #d17f04;
 }

@@ -24,6 +24,8 @@
                 </div>
             </li>
             <li><a href="conocenos.php">Conocenos</a></li>
+            <li><a href="Sucursales.php">Sucursales</a></li>
+            <li><a href="Promociones.php">Promociones</a></li>
         </ul>
     </nav>
 </header>
