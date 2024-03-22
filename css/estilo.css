@@ -38,8 +38,12 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f2f2f2;
-    padding: 10px 20px;
+    background-color: #f9d15f;
+    padding: 13px 0px;
+
+}
+ul {
+    background-color: #f3e193;
 }
 
 nav ul {
@@ -51,11 +55,13 @@ nav ul {
 
 nav ul li {
     margin-right: 20px;
+    background-color: #f3e193;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #333;
+    background-color: #f3e193;
 }
 
 .dropdown {
@@ -97,5 +103,23 @@ header h1 {
 }
 
 header {
-background-color: #d17f04;
+    background-color: #f9d15f;
+    display: flex;
+}
+
+.img-Logo {
+    height: 100px;
+    margin-right: 10rem;
+    margin-left: 1rem;
+}
+.img-Slogan {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.input-buscador {
+    margin-top: 23px;
+    width: 668px;
 }
