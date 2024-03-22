@@ -12,56 +12,39 @@
 <h1>Catálogo de Postres</h1>
 
 <?php
-// Consulta SQL base para obtener todos los postres
-$sql = "SELECT * FROM Postre";
+$sql = "SELECT * FROM Postre WHERE 1=1";
 
-// Verificar si se han aplicado filtros
+//filtro de búsqueda por nombre
+if(isset($_GET['buscar'])) {
+    $buscar = $_GET['buscar'];
+    $sql .= " AND Nombre LIKE '%$buscar%'";
+}
+
+//filtro de categoría
 if(isset($_GET['categoria'])) {
-    // Obtener la categoría seleccionada
     $categoria = $_GET['categoria'];
-    // Mostrar la categoría seleccionada
-    echo "<h2>Postres de la categoría: $categoria</h2>";
-    // Agregar filtro por categoría a la consulta SQL
-    $sql .= " WHERE Categoria='$categoria'";
+    $sql .= " AND Categoria='$categoria'";
 }
 
-// Verificar si se ha aplicado el filtro de precio
+//filtro de precio
 if(isset($_GET['precio'])) {
-    // Obtener el valor del precio seleccionado
     $precio = $_GET['precio'];
-    // Agregar filtro por precio a la consulta SQL
-    if(strpos($sql, "WHERE") !== false) {
-        $sql .= " AND Precio < $precio";
-    } else {
-        $sql .= " WHERE Precio < $precio";
-    }
+    $sql .= " AND Precio < $precio";
 }
 
-// Verificar si se ha aplicado el filtro de tamaño
+//filtro de tamaño
 if(isset($_GET['tamaño'])) {
-    // Obtener el tamaño seleccionado
     $tamaño = $_GET['tamaño'];
-    // Agregar filtro por tamaño a la consulta SQL
-    if(strpos($sql, "WHERE") !== false) {
-        $sql .= " AND Tamaño='$tamaño'";
-    } else {
-        $sql .= " WHERE Tamaño='$tamaño'";
-    }
+    $sql .= " AND Tamaño='$tamaño'";
 }
 
-// Verificar si se ha aplicado el filtro de sabor
+//filtro de sabor
 if(isset($_GET['sabor'])) {
-    // Obtener el sabor seleccionado
     $sabor = $_GET['sabor'];
-    // Agregar filtro por sabor a la consulta SQL
-    if(strpos($sql, "WHERE") !== false) {
-        $sql .= " AND Sabor='$sabor'";
-    } else {
-        $sql .= " WHERE Sabor='$sabor'";
-    }
+    $sql .= " AND Sabor='$sabor'";
 }
 
-// Incluir archivo de conexión a la base de datos
+//conexión a la base de datos
 include('includes/conexion.php');
 
 // Ejecutar la consulta SQL
@@ -84,11 +67,10 @@ if ($result->num_rows > 0) {
     }
     echo "</div>";
 } else {
-    // Mostrar mensaje si no se encontraron resultados
-    echo "No hay postres disponibles.";
+    echo "No se encontraron postres.";
 }
 
-// Cerrar la conexión a la base de datos
+// Cerrar la conexión
 $conn->close();
 ?>
 

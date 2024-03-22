@@ -10,7 +10,10 @@
     <header>
         <div><img src="img/Logo.jpeg" class="img-Logo"></div>
         <div>
-            <input type="text" class="input-buscador" placeholder="Buscar un postre, sabor o tamaño">
+        <form action="catalogo.php" method="GET">
+            <input type="text" name="buscar" placeholder="Buscar por nombre..." class="input-buscador">
+            <button type="submit" class="boton-buscar">Buscar</button>
+        </form>
             <nav>
                 <div>
                     <ul>
