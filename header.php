@@ -10,10 +10,10 @@
     <header>
         <div><img src="img/Logo.jpeg" class="img-Logo"></div>
         <div>
-        <form action="catalogo.php" method="GET">
-            <input type="text" name="buscar" placeholder="Buscar por nombre..." class="input-buscador">
-            <button type="submit" class="boton-buscar">Buscar</button>
-        </form>
+            <form action="catalogo.php" method="GET">
+                <input type="text" name="buscar" placeholder="Buscar por nombre..."class="input-buscador">
+                <button type="submit" class="boton-buscar">Buscar</button>
+            </form>
             <nav>
                 <div>
                     <ul>
@@ -23,7 +23,7 @@
                             <a href="#" class="dropbtn">Categorías</a>
                             <div class="dropdown-content">
                                 <a href="catalogo.php?categoria=pastel">Pasteles</a>
-                                <a href="catalogo.php?categoria=galleta">Galletas</a>
+                                <a href="catalogo.php?categoria=Galletas">Galletas</a>
                                 <a href="catalogo.php?categoria=gelatina">Gelatinas</a>
                                 <a href="catalogo.php?categoria=cupcake">Cupcakes</a>
                                 <a href="catalogo.php">Todos los postres</a>
@@ -58,6 +58,12 @@
                         </li>
                         <li><a href="Sucursales.php">Sucursales</a></li>
                         <li><a href="Promociones.php">Promociones</a></li>
+                        <li><a class="nav-link" href="login.php">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                <path d="M8 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm3-3a4 4 0 1 0-6.828 2.829A6 6 0 0 0 1 14h14a6 6 0 0 0-3.172-6.172A4 4 0 0 0 11 5z"/>
+                            </svg>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>

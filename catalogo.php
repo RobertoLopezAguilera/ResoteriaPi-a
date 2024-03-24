@@ -12,39 +12,50 @@
 <h1>Catálogo de Postres</h1>
 
 <?php
+// Consulta SQL base para obtener todos los postres
 $sql = "SELECT * FROM Postre WHERE 1=1";
 
-//filtro de búsqueda por nombre
+// Verificar si se ha aplicado el filtro de búsqueda por nombre
 if(isset($_GET['buscar'])) {
+    // Obtener el término de búsqueda
     $buscar = $_GET['buscar'];
+    // Agregar filtro por nombre a la consulta SQL
     $sql .= " AND Nombre LIKE '%$buscar%'";
 }
 
-//filtro de categoría
+// Verificar si se ha aplicado el filtro de categoría
 if(isset($_GET['categoria'])) {
+    // Obtener la categoría seleccionada
     $categoria = $_GET['categoria'];
+    // Agregar filtro por categoría a la consulta SQL
     $sql .= " AND Categoria='$categoria'";
 }
 
-//filtro de precio
+// Verificar si se ha aplicado el filtro de precio
 if(isset($_GET['precio'])) {
+    // Obtener el valor del precio seleccionado
     $precio = $_GET['precio'];
+    // Agregar filtro por precio a la consulta SQL
     $sql .= " AND Precio < $precio";
 }
 
-//filtro de tamaño
+// Verificar si se ha aplicado el filtro de tamaño
 if(isset($_GET['tamaño'])) {
+    // Obtener el tamaño seleccionado
     $tamaño = $_GET['tamaño'];
+    // Agregar filtro por tamaño a la consulta SQL
     $sql .= " AND Tamaño='$tamaño'";
 }
 
-//filtro de sabor
+// Verificar si se ha aplicado el filtro de sabor
 if(isset($_GET['sabor'])) {
+    // Obtener el sabor seleccionado
     $sabor = $_GET['sabor'];
+    // Agregar filtro por sabor a la consulta SQL
     $sql .= " AND Sabor='$sabor'";
 }
 
-//conexión a la base de datos
+// Incluir archivo de conexión a la base de datos
 include('includes/conexion.php');
 
 // Ejecutar la consulta SQL
@@ -57,12 +68,13 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         echo "<div class='postre'>";
         echo "<h3>" . $row['Nombre'] . "</h3>";
-        echo "<p>Categoría: " . $row['Categoria'] . "</p>";
-        echo "<p>Tamaño: " . $row['Tamaño'] . "</p>";
-        echo "<p>Sabor: " . $row['Sabor'] . "</p>";
-        echo "<p>Ingredientes: " . $row['Ingredientes'] . "</p>";
-        echo "<p>Precio: $" . $row['Precio'] . "</p>";
+        echo "<p>$" . $row['Precio'] . "</p>";
         echo "<img src='data:image/jpeg;base64," . base64_encode($row['Imagen']) . "' alt='Imagen del postre'>";
+        echo "<form action='comprar.php' method='POST'>";
+        echo "<input type='hidden' name='idPostre' value='" . $row['idPostre'] . "'>";
+        echo "<button type='submit'class='btn btn-primary'>Comprar</button>";
+        echo "</form>";
+        echo "<a href='ver_postre.php?id=" . $row['idPostre'] . "'><button class='btn btn-secondary'>Ver</button></a>";
         echo "</div>";
     }
     echo "</div>";
@@ -70,7 +82,7 @@ if ($result->num_rows > 0) {
     echo "No se encontraron postres.";
 }
 
-// Cerrar la conexión
+// Cerrar la conexión a la base de datos
 $conn->close();
 ?>
 
