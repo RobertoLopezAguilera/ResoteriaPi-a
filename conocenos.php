@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>ftyugihkl</h1>
 </body>
 </html>
+<?php include('footer.php'); ?>
