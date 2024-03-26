@@ -10,7 +10,7 @@
 </head>
 <body>
     <img src="img/Slogan.jpeg" class="img-Slogan">
-
+    <h1>Lo mas vendido</h1>
     <img src="img/Group 3.png" class="img-Slogan">
     <img src="img/image 26.png" class="img-Slogan">
 </body>
