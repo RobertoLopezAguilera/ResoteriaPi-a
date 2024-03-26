@@ -174,21 +174,20 @@ body {
     height: 100vh;
 }
 /*Login*/
-.img-login{
-    background-image: url('/img/Slogan.jpeg');
-}
-.input-password{
-    background-image: url('/img/key_FILL0_wght400_GRAD0_opsz24.png');
+.input-password {
+    background-image: url('img/key_FILL0_wght400_GRAD0_opsz24.png');
     background-size: 32px 32px;
     background-repeat: no-repeat;
     padding: .5rem .5rem .5rem 2rem;
 }
-.input-user{
-    background-image: url('/img/person.png');
+
+.input-user {
+    background-image: url("/img/person.png");
     background-size: 32px 32px;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;   
     padding: .5rem .5rem .5rem 2rem;
 }
+
 
 .login-container {
     background-color: rgba(255, 255, 255, 0.315);

@@ -10,6 +10,9 @@
 </head>
 <body>
     <img src="img/Slogan.jpeg" class="img-Slogan">
+
+    <img src="img/Group 3.png" class="img-Slogan">
+    <img src="img/image 26.png" class="img-Slogan">
 </body>
 </html>
 <?php include('footer.php');?>

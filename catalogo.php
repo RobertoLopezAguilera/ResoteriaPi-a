@@ -85,7 +85,8 @@ if ($result->num_rows > 0) {
 // Cerrar la conexión a la base de datos
 $conn->close();
 ?>
-
+<img src="img/Group 3.png" class="img-Slogan">
+<img src="img/image 26.png" class="img-Slogan">
 </body>
 </html>
 <?php include('footer.php'); ?>
