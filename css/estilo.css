@@ -173,7 +173,7 @@ body {
     background-repeat: no-repeat;
     height: 100vh;
 }
-
+/*Login*/
 .img-login{
     background-image: url('/img/Slogan.jpeg');
 }
@@ -199,7 +199,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     text-align: center;
-    margin-top: 150px;
+    margin-top: 50px;
 }
 
 .login-form {
@@ -225,6 +225,15 @@ body {
     color: #fdfdfd;
     text-decoration: none;
 }
+
+.login-div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    align-content: flex-start;
+}
+
 
 
 /* Estilos para la página ver_postre.php */
@@ -302,4 +311,3 @@ h1 {
     color: #fff;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
-

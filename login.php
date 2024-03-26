@@ -6,9 +6,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login</title>
         <link rel="stylesheet" href="css/estilo.css">
+        <style>
+            .div-Login{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: baseline;
+                align-content: flex-start;
+            }
+        </style>
     </head>
     <body>
-    <div>
+    <div class="div-Login">
         <div class="login-container">
             <p>¿Ya tienes cuenta?</p>
             <h2>Inicia sesíon aquí</h2>
@@ -54,3 +63,4 @@
     </div>
 </body>
 </html>
+<?php include('footer.php');?>
