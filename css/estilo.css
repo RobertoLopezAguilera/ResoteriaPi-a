@@ -2,11 +2,13 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-image: linear-gradient(to left,rgb(169, 240, 245),rgb(255, 172, 248),#e3f1ff);
+  height: 100vh;
 }
 
 h1, h2, h3 {
     color: #333;
-}
+}x
 
 .catalogo {
     display: grid;
@@ -163,16 +165,6 @@ header {
     background-color: #2980b9;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-image: url('/img/Fondo.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-}
 /*Login*/
 .input-password {
     background-image: url('img/key_FILL0_wght400_GRAD0_opsz24.png');

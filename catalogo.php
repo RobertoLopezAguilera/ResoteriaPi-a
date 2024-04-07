@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-
 <h1>Catálogo de Postres</h1>
-
 <?php
 // Consulta SQL base para obtener todos los postres
 $sql = "SELECT * FROM Postre WHERE 1=1";
