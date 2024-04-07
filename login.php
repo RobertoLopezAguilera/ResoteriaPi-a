@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <?php include('header.php'); ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -17,6 +20,14 @@
         </style>
     </head>
     <body>
+    <?php
+        // Verificar si hay un mensaje de error definido en la variable de sesión
+        if (isset($_SESSION['error'])) {
+            echo '<p style="color: red;">' . $_SESSION['error'] . '</p>';
+            // Eliminar la variable de sesión del mensaje de error para que no se muestre nuevamente
+            unset($_SESSION['error']);
+        }
+        ?>
     <div class="div-Login">
         <div class="login-container">
             <p>¿Ya tienes cuenta?</p>
