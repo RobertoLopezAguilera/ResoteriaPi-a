@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `Administrador` (
   `idAdministrador` INT NOT NULL auto_increment,
   `Nombre` VARCHAR(45) NOT NULL,
   `Correo` VARCHAR(45) NOT NULL,
-  `Contraseña` VARCHAR(45) NOT NULL,
+  `Contraseña` VARCHAR(255) NOT NULL,
   `Orden_idOrden` INT NOT NULL,
   PRIMARY KEY (`idAdministrador`, `Orden_idOrden`),
   INDEX `fk_Administrador_Orden1_idx` (`Orden_idOrden` ASC) VISIBLE,
