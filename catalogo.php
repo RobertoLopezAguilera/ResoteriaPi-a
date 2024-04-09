@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Postres</title>
     <link rel="stylesheet" href="css/estilo.css">
+    <style>
+        .catalogo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 20px;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
 <h1>Catálogo de Postres</h1>

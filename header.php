@@ -43,9 +43,9 @@
                             <a href="catalogo.php?precio=200">Menos de $200</a>
                             <a href="catalogo.php?precio=300">Menos de $300</a>
                             <a href="catalogo.php?precio=400">Menos de $400</a>
-                            <a href="catalogo.php?precio=600">$Menos de $600</a>
-                            <a href="catalogo.php?precio=600">$Menos de $600</a>
-                            <a href="catalogo.php?precio=700">$Menos de $700</a>
+                            <a href="catalogo.php?precio=600">Menos de $500</a>
+                            <a href="catalogo.php?precio=600">Menos de $600</a>
+                            <a href="catalogo.php?precio=700">Menos de $700</a>
                             <a href="catalogo.php?precio=800">Más de $700</a>
                             </div>
                         </li>
@@ -54,6 +54,7 @@
                             <div class="dropdown-content">
                                 <a href="catalogo.php?sabor=chocolate">Chocolate</a>
                                 <a href="catalogo.php?sabor=vainilla">Vainilla</a>
+                                <a href="catalogo.php?sabor=fresa">Fresa</a>
                             </div>
                         </li>
                         <li><a href="https://www.google.com/maps/search/?api=1&query=Respostería+Piña" target="_blank">Sucursales</a></li>
@@ -66,6 +67,8 @@
                                 </a>
                             <div class="dropdown-content">
                                 <a href="cerrar-sesion.php">Cerrar cesion</a>
+                                <a href="regitro-postre.php">Registrar postre</a>
+                                <a href="calendario.php">Calendario</a>
                             </div>
                         </li>
                     </ul>
