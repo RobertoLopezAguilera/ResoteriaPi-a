@@ -8,66 +8,48 @@
     <link rel="stylesheet" href="css/estilo.css">
     <style>
         .catalogo {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            grid-gap: 20px;
-            padding: 20px;
-        }
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 20px;
+        padding: 20px;
+    }
     </style>
 </head>
 <body>
 <h1>Catálogo de Postres</h1>
 <?php
-// Consulta SQL base para obtener todos los postres
 $sql = "SELECT * FROM Postre WHERE 1=1";
 
-// Verificar si se ha aplicado el filtro de búsqueda por nombre
 if(isset($_GET['buscar'])) {
-    // Obtener el término de búsqueda
     $buscar = $_GET['buscar'];
-    // Agregar filtro por nombre a la consulta SQL
     $sql .= " AND Nombre LIKE '%$buscar%'";
 }
 
-// Verificar si se ha aplicado el filtro de categoría
 if(isset($_GET['categoria'])) {
-    // Obtener la categoría seleccionada
     $categoria = $_GET['categoria'];
-    // Agregar filtro por categoría a la consulta SQL
     $sql .= " AND Categoria='$categoria'";
 }
 
-// Verificar si se ha aplicado el filtro de precio
 if(isset($_GET['precio'])) {
-    // Obtener el valor del precio seleccionado
     $precio = $_GET['precio'];
-    // Agregar filtro por precio a la consulta SQL
     $sql .= " AND Precio < $precio";
 }
 
-// Verificar si se ha aplicado el filtro de tamaño
 if(isset($_GET['tamaño'])) {
-    // Obtener el tamaño seleccionado
     $tamaño = $_GET['tamaño'];
-    // Agregar filtro por tamaño a la consulta SQL
     $sql .= " AND Tamaño='$tamaño'";
 }
 
-// Verificar si se ha aplicado el filtro de sabor
 if(isset($_GET['sabor'])) {
-    // Obtener el sabor seleccionado
     $sabor = $_GET['sabor'];
-    // Agregar filtro por sabor a la consulta SQL
     $sql .= " AND Sabor='$sabor'";
 }
 
 // Incluir archivo de conexión a la base de datos
 include('includes/conexion.php');
 
-// Ejecutar la consulta SQL
 $result = $conn->query($sql);
 
-// Verificar si se encontraron resultados
 if ($result->num_rows > 0) {
     // Mostrar los resultados
     echo "<div class='catalogo'>";
@@ -76,9 +58,9 @@ if ($result->num_rows > 0) {
         echo "<h3>" . $row['Nombre'] . "</h3>";
         echo "<p>$" . $row['Precio'] . "</p>";
         echo "<img src='data:image/jpeg;base64," . base64_encode($row['Imagen']) . "' alt='Imagen del postre'>";
-        echo "<form action='comprar.php' method='POST'>";
+        echo "<form action='form-orden.php' method='POST'>";
         echo "<input type='hidden' name='idPostre' value='" . $row['idPostre'] . "'>";
-        echo "<button type='submit'class='btn btn-primary'>Comprar</button>";
+        echo "<button type='submit'class='btn btn-primary' >Comprar</button>";
         echo "</form>";
         echo "<a href='ver_postre.php?id=" . $row['idPostre'] . "'><button class='btn btn-secondary'>Ver</button></a>";
         echo "</div>";

@@ -10,26 +10,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sabor = $_POST['sabor'];
     $ingredientes = $_POST['ingredientes'];
     $precio = $_POST['precio'];
+    $estado = $_POST['estado'];
+
     // Procesar la imagen
-    $imagen = $_FILES['imagen']['tmp_name'];
-    $imagenContenido = addslashes(file_get_contents($imagen));
+    if(isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
+        // Ruta temporal del archivo subido
+        $ruta_temporal = $_FILES['imagen']['tmp_name'];
+
+        // Leer el nombre original de la imagen
+        $nombre_imagen = $_FILES['imagen']['name'];
+
+        // Leer la imagen en memoria
+        $imagen_binaria = file_get_contents($ruta_temporal);
+
+        // Escapar los caracteres especiales para evitar problemas de SQL injection
+        $imagen_binaria = mysqli_real_escape_string($conn, $imagen_binaria);
+        $nombre_imagen = mysqli_real_escape_string($conn, $nombre_imagen);
+    } else {
+        // Si no se ha enviado una imagen, asignar un valor predeterminado
+        $imagen_binaria = null;
+        $nombre_imagen = null;
+    }
 
     // Preparar la consulta SQL
-    $sql = "INSERT INTO Postre (Nombre, Categoria, Tamaño, Sabor, Ingredientes, Precio, Imagen) VALUES (?, ?, ?, ?, ?, ? ,?)";
+    $sql = "INSERT INTO Postre (Nombre, Categoria, Tamaño, Sabor, Ingredientes, Precio, Estado, Imagen) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     
     // Preparar la declaración
     $stmt = $conn->prepare($sql);
 
     // Vincular parámetros
-    $stmt->bind_param("sssssis", $nombre, $categoria, $tamaño, $sabor, $ingredientes, $precio,$imagenContenido);
+    $stmt->bind_param("ssssssis", $nombre, $categoria, $tamaño, $sabor, $ingredientes, $precio, $estado, $imagen_binaria);
 
     // Ejecutar la consulta
     if ($stmt->execute()) {
-        // Postre registrado con éxito, redirigir al usuario a alguna página de éxito o mostrar un mensaje de éxito
-        header("Location: index.php?registro=exito");
+        // Postre registrado con éxito, redirigir al usuario a alguna página de éxito
+        header("Location: index.php");
         exit();
     } else {
-        // Error al registrar el postre, mostrar un mensaje de error o redirigir al usuario de vuelta al formulario de registro con un mensaje de error
+        // Error al registrar el postre, redirigir al usuario de vuelta al formulario de registro con un mensaje de error
         header("Location: form-postre.php?error=registro");
         exit();
     }

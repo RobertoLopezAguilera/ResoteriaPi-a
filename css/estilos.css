@@ -10,7 +10,11 @@ footer {
     justify-content: space-around;
     background-color: #f9d15f;
 }
-
+.container-img {
+    display: flex;
+    justify-content: space-around;
+    background-image: linear-gradient(to left,rgb(169, 240, 245),rgb(255, 172, 248),#e3f1ff);
+}
 .footer-section h3 {
     font-size: 18px;
     margin-bottom: 10px;

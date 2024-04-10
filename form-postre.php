@@ -79,7 +79,6 @@
     <div class="div-Login">
         <div class="login-container">
             <h2>Registrar Nuevo Postre</h2>
-            
             <form class="registro-form" action="registro-postre.php" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <input type="text" id="nombre" name="nombre" required placeholder="Nombre del postre" class="input-text">
@@ -111,6 +110,13 @@
                     <input type="file" id="imagen" name="imagen" accept="image/*" required>
                 </div>
                 <div class="form-group">
+                    <select id="estado" name="estado" required class="input-text">
+                        <option value="" disabled selected>Seleccione el estado</option>
+                        <option value="Disponible">Disponible</option>
+                        <option value="Agotado">Agotado</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <button type="submit" class="btn btn-secondary">Registrar Postre</button>
                 </div>
             </form>
@@ -118,5 +124,4 @@
     </div>
 </body>
 </html>
-
 <?php include('footer.php');?>

@@ -1,14 +1,14 @@
 <?php include('header.php'); ?>
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Promociones</title>
-        <link rel="stylesheet" href="css/estilo.css">
-    </head>
-    <body>
-    <?php
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postre</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+<?php
 // Incluir archivo de conexión a la base de datos
 include('includes/conexion.php');
 
@@ -24,7 +24,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
     // Verificar si se encontraron resultados
     if ($result->num_rows > 0) {
         // Mostrar los detalles del postre
-        echo "<div class='container'>";
+        echo "<div class='container-img'>";
         while($row = $result->fetch_assoc()) {
             echo "<div class='row'>";
             echo "<div class='col-md-6'>";
@@ -37,7 +37,11 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
             echo "<p><strong>Sabor:</strong> " . $row['Sabor'] . "</p>";
             echo "<p><strong>Ingredientes:</strong> " . $row['Ingredientes'] . "</p>";
             echo "<p><strong>Disponibilidad:</strong> " . ($row['Estado'] == 'Disponible' ? 'Disponible' : 'Agotado') . "</p>";
-            echo "<button type='button' class='btn btn-primary'>Comprar</button>";
+            // Agregar formulario para redirigir al formulario de orden con el ID del postre
+            echo "<form action='form-orden.php' method='POST'>";
+            echo "<input type='hidden' name='idPostre' value='" . $row['idPostre'] . "'>";
+            echo "<button type='submit'class='btn btn-primary' >Comprar</button>";
+            echo "</form>";
             echo "<button type='button' class='btn btn-secondary'>Agregar al carrito</button>";
             echo "</div>";
             echo "</div>";
@@ -57,5 +61,6 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
 $conn->close();
 ?>
 
-    </body>
+</body>
 </html>
+<?php include('footer.php');?>
