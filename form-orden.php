@@ -88,7 +88,7 @@
         </div>
         <div class="login-container">
             <h2>Ordenar</h2>
-            <form action="procesar_orden.php" method="POST" onsubmit="return validarFecha()">
+            <form action="procesar-orden.php" method="POST" onsubmit="return validarFecha()">
                 <div class="form-group">
                     <label for="nombre">Nombre del Cliente:</label>
                     <input type="text" id="nombre" name="nombre" class="input-text" required>

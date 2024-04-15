@@ -1,5 +1,5 @@
 <?php include('header.php'); ?>
-
+ne
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,8 +10,12 @@
 </head>
 <body>
     <img src="img/Slogan.jpeg" class="img-Slogan">
+   
+    <main class="main flow">
     <h1>Lo mas vendido</h1>
-        
+
+    </main>
+       
     <img src="img/Group 3.png" class="img-Slogan">
     <img src="img/image 26.png" class="img-Slogan">
 </body>

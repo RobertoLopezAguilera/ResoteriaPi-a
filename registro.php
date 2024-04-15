@@ -74,7 +74,7 @@ if (isset($_GET['mensaje']) && $_GET['mensaje'] === 'inicio_sesion') {
         <h2>Regístrate ahora</h2>
         <form class="login-form" action="procesar-registro.php" method="POST">
             <div class="form-group">
-                <input type="text" id="usuario" name="usuario" required size="30px" placeholder="Usuario" required pattern="[a-zA-Z0-9_]+" minlength="10" class="input-text">
+                <input type="text" id="usuario" name="usuario" required size="30px" placeholder="Usuario" required pattern="[a-zA-Z0-9_]+" minlength="7" class="input-text">
             </div>
             <div class="form-group">
                 <input type="email" id="correo" name="correo" required size="30px" placeholder="Correo electrónico" class="input-text">
