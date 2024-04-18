@@ -45,13 +45,11 @@ if(isset($_GET['sabor'])) {
     $sql .= " AND Sabor='$sabor'";
 }
 
-// Incluir archivo de conexión a la base de datos
 include('includes/conexion.php');
 
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    // Mostrar los resultados
     echo "<div class='catalogo'>";
     while($row = $result->fetch_assoc()) {
         echo "<div class='postre'>";
@@ -70,11 +68,8 @@ if ($result->num_rows > 0) {
     echo "No se encontraron postres.";
 }
 
-// Cerrar la conexión a la base de datos
 $conn->close();
 ?>
-<img src="img/Group 3.png" class="img-Slogan">
-<img src="img/image 26.png" class="img-Slogan">
 </body>
 </html>
 <?php include('footer.php'); ?>

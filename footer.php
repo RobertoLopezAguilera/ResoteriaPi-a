@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="css/estilos.css">
 <footer>
+    <img src="img/Group 3.png" class="img-Slogan">
+    <img src="img/image 26.png" class="img-Slogan">
     <div class="container">
         <div class="footer-section">
             <h3>Cliente</h3>

@@ -46,14 +46,32 @@
         .postre-info {
             text-align: center;
         }
-
         .postre-info img {
             max-width: 200px;
             margin-bottom: 20px;
         }
-
         .postre-info h3 {
             margin-top: 0;
+        }
+        .input-textTarjeta{
+            box-shadow: inset #e571c7 0 0 0 2px;
+            border: 0;
+            background: rgba(255, 255, 255);
+            appearance: none;
+            width: 5rem;
+            position: relative;
+            border-radius: 0px;
+            padding: 0px 0px;
+            line-height: 1.4;
+            color: rgb(0, 0, 0);
+            font-size: 16px;
+            font-weight: 400;
+            height: 40px;
+            transition: all .2s ease;
+            border-radius: 10px;
+        }
+        .form-groupTarjeta{
+            display: flex;
         }
     </style>
 </head>
@@ -89,9 +107,10 @@
         <div class="login-container">
             <h2>Ordenar</h2>
             <form action="procesar-orden.php" method="POST" onsubmit="return validarFecha()">
+                <input type="hidden" name="idPostre" value="<?php echo isset($_POST['idPostre']) ? $_POST['idPostre'] : ''; ?>">
                 <div class="form-group">
                     <label for="nombre">Nombre del Cliente:</label>
-                    <input type="text" id="nombre" name="nombre" class="input-text" required>
+                    <input type="text" placeholder="Nombre Completo" id="nombre" name="nombre" class="input-text" required>
                 </div>
                 <div class="form-group">
                     <label for="telefono">Teléfono del Cliente:</label>
@@ -106,8 +125,24 @@
                     <input type="text" id="calle" name="calle" class="input-text" required>
                 </div>
                 <div class="form-group">
-                    <label for="numero">Número:</label>
+                    <label for="numero">Número exterior:</label>
                     <input type="text" id="numero" name="numero" class="input-text" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="numero_tarjeta">Número de Tarjeta:</label>
+                    <input type="text" placeholder="#### #### #### ####" id="numero_tarjeta" name="numero_tarjeta" class="input-text" required>
+                </div>
+                <div class="form-groupTarjeta">
+                    <div>
+                        <label for="cv">CV:</label>
+                        <label for="fecha_pago">Fecha de Vencimineto:</label>  
+                    </div>
+                    <div>
+                        <input type="text" id="cv" name="cv" class="input-textTarjeta" required>
+                        <input placeholder=" 00/00" type="text" id="fecha_vencimiento" name="fecha_vencimiento" class="input-textTarjeta" required>
+                    </div>
+                    
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar Orden</button>
             </form>

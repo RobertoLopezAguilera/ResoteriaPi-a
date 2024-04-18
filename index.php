@@ -1,5 +1,4 @@
 <?php include('header.php'); ?>
-ne
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,9 +14,6 @@ ne
     <h1>Lo mas vendido</h1>
 
     </main>
-       
-    <img src="img/Group 3.png" class="img-Slogan">
-    <img src="img/image 26.png" class="img-Slogan">
 </body>
 </html>
 <?php include('footer.php');?>

@@ -78,8 +78,6 @@ session_start();
             <p><a class="register-link" href="registro.php">Registrar</a></p>
         </div>
     </div>
-    <img src="img/Group 3.png" class="img-Slogan">
-    <img src="img/image 26.png" class="img-Slogan">
 </body>
 </html>
 <?php include('footer.php');?>

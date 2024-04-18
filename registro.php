@@ -1,15 +1,11 @@
 <?php
-// Iniciar sesión
 session_start();
 
-// Verificar si hay una sesión iniciada
 if (!isset($_SESSION['usuario'])) {
-    // Si no hay una sesión iniciada, redirigir al usuario a la página de inicio de sesión
     header("Location: login.php");
     exit();
 }
 
-// Mensaje de advertencia si es necesario iniciar sesión
 $mensaje = '';
 if (isset($_GET['mensaje']) && $_GET['mensaje'] === 'inicio_sesion') {
     $mensaje = '<p style="color: red;">Debes iniciar sesión primero para acceder a esta página.</p>';
@@ -65,7 +61,6 @@ if (isset($_GET['mensaje']) && $_GET['mensaje'] === 'inicio_sesion') {
 <div class="div-Login">
     <div class="login-container">
         <?php
-        // Verificar si se debe mostrar el mensaje
         if (isset($_GET['mensaje']) && $_GET['mensaje'] === 'inicio_sesion') {
             echo '<p style="color: red;">Debes iniciar sesión primero para acceder a esta página.</p>';
         }

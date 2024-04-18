@@ -10,9 +10,6 @@
 </head>
 
 <body>
-
-
-
     <h1 class="tittle">Contáctanos</h1>
     <p>La historia de la repostería Piña tiene sus raíces
         en la encantadora ciudad de Uriangato, ubicada en el corazón
