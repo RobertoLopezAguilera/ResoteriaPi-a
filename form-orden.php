@@ -105,41 +105,35 @@
             </div>
         </div>
         <div class="login-container">
-            <h2>Ordenar</h2>
+            <h2>Datos del cliente:</h2>
             <form action="procesar-orden.php" method="POST" onsubmit="return validarFecha()">
                 <input type="hidden" name="idPostre" value="<?php echo isset($_POST['idPostre']) ? $_POST['idPostre'] : ''; ?>">
                 <div class="form-group">
-                    <label for="nombre">Nombre del Cliente:</label>
                     <input type="text" placeholder="Nombre Completo" id="nombre" name="nombre" class="input-text" required>
                 </div>
                 <div class="form-group">
                     <label for="telefono">Teléfono del Cliente:</label>
-                    <input type="tel" id="telefono" name="telefono" class="input-text" required>
+                    <input type="tel" placeholder="10 Digitos" id="telefono" name="telefono" class="input-text" required>
                 </div>
                 <div class="form-group">
                     <label for="fecha_entrega">Fecha de Entrega:</label>
-                    <input type="date" id="fecha_entrega" name="fecha_entrega" class="input-text" required>
+                    <input type="date"  id="fecha_entrega" name="fecha_entrega" class="input-text" required>
                 </div>
                 <div class="form-group">
                     <label for="calle">Calle:</label>
-                    <input type="text" id="calle" name="calle" class="input-text" required>
+                    <input type="text" placeholder="Calle " id="calle" name="calle" class="input-text" required>
                 </div>
                 <div class="form-group">
-                    <label for="numero">Número exterior:</label>
-                    <input type="text" id="numero" name="numero" class="input-text" required>
+                    <input type="text" placeholder="Numero exterior #" placeholder="10 Digitos" id="numero" name="numero" class="input-text" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="numero_tarjeta">Número de Tarjeta:</label>
+                    <label for="numero_tarjeta">Datos de Tarjeta:</label>
                     <input type="text" placeholder="#### #### #### ####" id="numero_tarjeta" name="numero_tarjeta" class="input-text" required>
                 </div>
                 <div class="form-groupTarjeta">
                     <div>
-                        <label for="cv">CV:</label>
-                        <label for="fecha_pago">Fecha de Vencimineto:</label>  
-                    </div>
-                    <div>
-                        <input type="text" id="cv" name="cv" class="input-textTarjeta" required>
+                        <input type="text" placeholder="CVV" id="cv" name="cv" class="input-textTarjeta" required>
                         <input placeholder=" 00/00" type="text" id="fecha_vencimiento" name="fecha_vencimiento" class="input-textTarjeta" required>
                     </div>
                     

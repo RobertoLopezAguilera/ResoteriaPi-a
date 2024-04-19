@@ -48,10 +48,8 @@ session_start();
     </head>
     <body>
     <?php
-        // Verificar si hay un mensaje de error definido en la variable de sesión
         if (isset($_SESSION['error'])) {
             echo '<p style="color: red;">' . $_SESSION['error'] . '</p>';
-            // Eliminar la variable de sesión del mensaje de error para que no se muestre nuevamente
             unset($_SESSION['error']);
         }
         ?>
@@ -61,11 +59,11 @@ session_start();
             <h2>Inicia sesíon aquí</h2>
             <form class="login-form" action="procesar-login.php" method="POST">
                 <div class="form-group">
-                    <input type="text" id="usuario" name="usuario" required size="30px" placeholder="Usuario"
+                    <input type="text" id="usuario" name="usuario" required size="30px" placeholder="   Usuario"
                     required pattern="[a-zA-Z0-9_]+" minlength="7" class="input-text">
                 </div>
                 <div class="form-group">
-                    <input type="password" id="contrasena" name="contrasena" required size="30px" placeholder="Constraseña"
+                    <input type="password" id="contrasena" name="contrasena" required size="30px" placeholder="   Constraseña"
                     class="input-text">
                 </div>
                 <div class="form-group">

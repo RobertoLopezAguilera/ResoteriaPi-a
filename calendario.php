@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['usuario'])) {
+        header("Location: login.php");
+        exit();
+    }
+    $mensaje = '';
+    if (isset($_GET['mensaje']) && $_GET['mensaje'] === 'inicio_sesion') {
+        $mensaje = '<p style="color: red;">Debes iniciar sesión primero para acceder a esta página.</p>';
+    }
+?>
 <?php include('header.php'); ?>
 <!doctype html>
 <html lang="en">
@@ -23,12 +34,16 @@
     </head>
 
     <body>
+    <?php
+        if (isset($_GET['mensaje']) && $_GET['mensaje'] === 'inicio_sesion') {
+            echo '<p style="color: red;">Debes iniciar sesión primero para acceder a esta página.</p>';
+        }
+        ?>
         <div class="containerCalendar">
             <div class="col-md-10 offset-md-1">
                 <div id='calendar'></div>
             </div>
         </div>
-
         <script>
             document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
@@ -38,7 +53,7 @@
                 headerToolbar:{
                     left:'prev,next today',
                     center:'title',
-                    right:'dayGridMonth, timeGridWeek'
+                    right:'dayGridMonth,timeGridWeek'
                 }
             });
             calendar.render();

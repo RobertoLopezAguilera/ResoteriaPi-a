@@ -87,15 +87,6 @@
 
 </section>
 
-
-
-
-
-
-
-
-    <img src="img/Group 3.png" class="img-Slogan">
-    <img src="img/image 26.png" class="img-Slogan">
 </body>
 
 </html>

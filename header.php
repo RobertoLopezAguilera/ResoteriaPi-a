@@ -68,6 +68,7 @@
                             <div class="dropdown-content">
                                 <a href="cerrar-sesion.php">Cerrar cesion</a>
                                 <a href="form-postre.php">Registrar postre</a>
+                                <a href="registro.php">Registrar Usuario</a>
                                 <a href="calendario.php">Calendario</a>
                             </div>
                         </li>
