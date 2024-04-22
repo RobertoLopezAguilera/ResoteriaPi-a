@@ -36,6 +36,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Orden` (
   `idOrden` INT NOT NULL auto_increment,
   `Nombre_Cliente` VARCHAR(45) NOT NULL,
+  `Correo` VARCHAR(45) NOT NULL,
   `Telefono_Cliente` varchar(10) NOT NULL,
   `Fecha_Entrega` DATE NOT NULL,
   `Fecha_Pedido` DATE NOT NULL,

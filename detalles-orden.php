@@ -1,5 +1,54 @@
 <?php
-    include('header.php');
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$mensaje = '';
+if (isset($_GET['mensaje']) && $_GET['mensaje'] === 'inicio_sesion') {
+    $mensaje = '<p style="color: red;">Debes iniciar sesión primero para acceder a esta página.</p>';
+}
+?>
+<?php include('header.php'); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de la orden</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+    .div-Login{
+        display: flex;
+    }
+    select{
+        default dropdown arro
+        appearance: none;
+        background-color: transparent;
+        border: none;
+        padding: 0 1em 0 0;
+        margin: 0;
+        width: 100%;
+        font-family: inherit;
+        font-size: inherit;
+        cursor: inherit;
+        line-height: inherit;
+        z-index: 1;
+        &::-ms-expand {
+            display: none;
+        }
+    }
+</style>
+
+</head>
+<body>
+<?php
+    if (isset($_GET['mensaje']) && $_GET['mensaje'] === 'inicio_sesion') {
+        echo '<p style="color: red;">Debes iniciar sesión primero para acceder a esta página.</p>';
+    }
     include('includes/conexion.php');
 
     if (isset($_POST['idOrden']) && is_numeric($_POST['idOrden'])) {
@@ -23,6 +72,7 @@
             echo "<p>Nombre del Cliente: $nombreCliente</p>";
             echo "<p>Teléfono del Cliente: $telefonoCliente</p>";
             echo "<p>Fecha de Entrega: $fechaEntrega</p>";
+            echo "<p>Fecha en que se pidio: $fechaPedido</p>";
             echo "<p>Estado actual: $estado</p>";
             echo "<label for='nuevoEstado'>Seleccionar nuevo estado:</label>";
             echo "<select name='nuevoEstado' id='nuevoEstado'>";
@@ -34,7 +84,28 @@
             echo "<input type='submit' class='btn btn-primary' value='Guardar'>";
             echo "</form>";
             echo "</div>";
-            echo "</div>";
+            
+
+            // Mostrar los detalles de pago
+            $sql_pago = "SELECT * FROM Pago WHERE Orden_idOrden = $idOrden";
+            $result_pago = $conn->query($sql_pago);
+
+            if ($result_pago->num_rows > 0) {
+                $row_pago = $result_pago->fetch_assoc();
+                $numeroTarjeta = $row_pago['Numero_Tarjeta'];
+                $cv = $row_pago['CV'];
+                $fechaPago = $row_pago['Fecha'];
+
+                // Mostrar los detalles del pago
+                echo "<div class='login-container'>";
+                echo "<h2>Detalles del Pago</h2>";
+                echo "<p>Número de Tarjeta: $numeroTarjeta</p>";
+                echo "<p>CV: $cv</p>";
+                echo "<p>Fecha de Pago: $fechaPago</p>";
+                echo "</div>";
+            } else {
+                echo "No se encontraron detalles de pago para esta orden.";
+            }
 
             // Obtener los detalles del postre pedido
             $sql_detalle = "SELECT * FROM DetalleOrden WHERE Orden_idOrden = $idOrden";
@@ -72,7 +143,16 @@
     } else {
         echo "ID de orden no válido.";
     }
-
+    echo "</div>";
     $conn->close();
-    include('footer.php');
+    
 ?>
+<form action="borrar-orden.php" method="post">
+    <input type="hidden" name="idOrden" value="<?php echo $idOrden; ?>">
+    <input type="submit" class="btn btn-danger" value="Borrar">
+</form>
+
+</body>
+</html>
+
+<?php include('footer.php'); ?>

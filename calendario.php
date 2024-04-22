@@ -1,4 +1,20 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$mensaje = '';
+if (isset($_GET['mensaje']) && $_GET['mensaje'] === 'inicio_sesion') {
+    $mensaje = '<p style="color: red;">Debes iniciar sesión primero para acceder a esta página.</p>';
+}
+?>
+<?php
+if (isset($_GET['mensaje']) && $_GET['mensaje'] === 'inicio_sesion') {
+    echo '<p style="color: red;">Debes iniciar sesión primero para acceder a esta página.</p>';
+}
     include('includes/conexion.php');
     $sql = "SELECT idOrden, Estado, Fecha_Entrega FROM Orden";
     $result = $conn->query($sql);
@@ -19,7 +35,7 @@
                 default:
                     $color = '#007bff';
             }
-            
+
             $evento = [
                 'id' => $row['idOrden'],
                 'title' => $row['Estado'],
