@@ -109,11 +109,14 @@
             <form action="procesar-orden.php" method="POST" onsubmit="return validarFecha()">
                 <input type="hidden" name="idPostre" value="<?php echo isset($_POST['idPostre']) ? $_POST['idPostre'] : ''; ?>">
                 <div class="form-group">
-                    <input type="text" placeholder="Nombre Completo" id="nombre" name="nombre" class="input-text" required>
+                    <input type="text" placeholder="   Nombre Completo" id="nombre" name="nombre" class="input-text" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="   Ejemplo@gmail.com" id="correo" name="correo" class="input-text" required>
                 </div>
                 <div class="form-group">
                     <label for="telefono">Teléfono del Cliente:</label>
-                    <input type="tel" placeholder="10 Digitos" id="telefono" name="telefono" class="input-text" required>
+                    <input type="tel" placeholder="   10 Digitos" id="telefono" name="telefono" class="input-text" required>
                 </div>
                 <div class="form-group">
                     <label for="fecha_entrega">Fecha de Entrega:</label>
@@ -136,7 +139,6 @@
                         <input type="text" placeholder="CVV" id="cv" name="cv" class="input-textTarjeta" required>
                         <input placeholder=" 00/00" type="text" id="fecha_vencimiento" name="fecha_vencimiento" class="input-textTarjeta" required>
                     </div>
-                    
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar Orden</button>
             </form>

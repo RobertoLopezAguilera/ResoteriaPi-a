@@ -8,6 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $calle = $_POST['calle'];
     $numero = $_POST['numero'];
     $idPostre = $_POST['idPostre'];
+    $correo = $_POST['correo'];
 
     $numero_tarjeta = $_POST['numero_tarjeta'];
     $cv = $_POST['cv'];
@@ -21,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $fecha_pedido = date("Y-m-d");
         $estado = "Pendiente";
 
-        $sql_orden = "INSERT INTO Orden (Nombre_Cliente, Telefono_Cliente, Fecha_Entrega, Fecha_Pedido, Estado, Entrega_idEntrega) VALUES ('$nombre', '$telefono', '$fecha_entrega', '$fecha_pedido', '$estado', '$idEntrega')";
+        $sql_orden = "INSERT INTO Orden (Nombre_Cliente, Telefono_Cliente, Correo, Fecha_Entrega, Fecha_Pedido, Estado, Entrega_idEntrega) VALUES ('$nombre', '$telefono', '$correo','$fecha_entrega', '$fecha_pedido', '$estado', '$idEntrega')";
         if ($conn->query($sql_orden) === TRUE) {
             $idOrden = $conn->insert_id;
 
