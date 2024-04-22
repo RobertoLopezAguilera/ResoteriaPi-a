@@ -9,11 +9,8 @@
 </head>
 <body>
     <img src="img/Slogan.jpeg" class="img-Slogan">
-   
-    <main class="main flow">
     <h1>Lo mas vendido</h1>
-
-    </main>
+    <?php include('mas-vendido.php'); ?>
 </body>
 </html>
 <?php include('footer.php');?>

@@ -38,11 +38,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     if ($conn->query($sql_detalle_orden) === TRUE) {
                         $conn->commit();
                         echo "Orden procesada correctamente.";
-                        header("Location: login.php?registro=exito");
+                        header("Location: detalles-orden-cliente.php?idOrden=$idOrden");
                     } else {
                         $conn->rollback();
                         echo "Error al insertar en la tabla DetalleOrden: " . $conn->error;
                     }
+                    
                 } else {
                     $conn->rollback();
                     echo "No se encontró el precio del postre.";
